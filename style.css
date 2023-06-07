@@ -1,0 +1,144 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --bg-main:#4E3636;
+  --bg-card:#2d2727;
+  --border-color:#967E76;
+}
+
+body{
+  height: 100vh;
+  background-color: var(--bg-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.container{
+  margin: 10px 210px 50px;
+}
+h1{
+  color: #fff;
+  font-size: 4rem;
+  margin: 20px 20px 1px;
+}
+
+span{
+  color: var(--border-color);
+}
+
+#card-section{
+  margin: 5px auto 20px;
+  padding: 80px 100px 80px;
+  width: 800px;
+  max-width: 100%;
+  background-color: #967E76;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(2, 100px);
+  grid-gap: 3rem;
+  overflow: hidden;
+}
+
+.card{
+  position: relative;
+  transition: all .4s linear;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card,
+.back-card,
+.front-card{
+  height: 8rem;
+  width: 8rem;
+  cursor: pointer;
+}
+
+.back-card,
+.front-card{
+  position: absolute;
+  backface-visibility: hidden;
+  cursor: pointer;
+  
+}
+
+.front-card{
+  background: var(--border-color);
+  background-size: contain;
+  box-shadow: rgba(245, 216, 0, 0.2) 0px 8px 24px;
+  padding: 2rem;
+  
+}
+
+.back-card{
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  box-shadow: rgba(245, 216, 0, 0.2) 0px 8px 24px;
+  padding: 2rem;
+  transform: rotateY(180deg);
+}
+
+.card-selected{
+  transform: rotateY(-180deg);
+}
+
+.card-match .front-card{
+  background-color: var(--bg-main);
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  h1{
+    font-size: 3rem;
+    margin: 20px 10px 1px;
+  }
+  
+  #card-section{
+    padding: 60px 100px 60px;
+    width: 700px;
+  }
+  
+  .card,
+  .back-card,
+  .front-card{
+    height: 6rem;
+    width: 6rem;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  h1{
+    font-size: 2rem;
+    margin: 20px 5px 1px;
+  }
+  
+  #card-section{
+    padding: 60px 10px 80px;
+    width: 350px;
+    display: grid;
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: repeat(2, 70px);
+    grid-gap: 1rem;
+    overflow: hidden;
+  }
+  
+  .card,
+  .back-card,
+  .front-card{
+    
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+  }
+}
+
